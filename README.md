@@ -92,3 +92,6 @@
 - Google Maps JavaScript API
 - Google Maps Geocoding API
 - Google Places API
+
+## ■画面遷移図
+[Figma](https://www.figma.com/file/tjmBYjarfGFkHR7TJEX3m7/MyScenery?type=design&node-id=0%3A1&t=jmnyL1mtLmn7PKah-1 "MyScenery画面遷移図")
