@@ -100,4 +100,4 @@
 [Figma](https://www.figma.com/file/tjmBYjarfGFkHR7TJEX3m7/MyScenery?type=design&node-id=0%3A1&t=jmnyL1mtLmn7PKah-1 "MyScenery 画面遷移図")
 
 ## ■ER図
-[![Image from Gyazo](https://i.gyazo.com/8403c8682a592f1769f7ba0b85dc599f.png)](https://gyazo.com/8403c8682a592f1769f7ba0b85dc599f)
+![MyScenery_er_diagram](https://user-images.githubusercontent.com/105092969/241128089-5bdd2405-a0de-47d6-be50-5e37f05593d0.png)
