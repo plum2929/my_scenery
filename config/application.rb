@@ -37,8 +37,21 @@ module MyScenery
     # タイムゾーンを日本に設定
     config.time_zone = 'Tokyo'
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    # generateで生成するファイルの設定
+    config.generators do |g|
+      g.assets false
+      g.skip_routes true
+      g.helper false
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       request_specs: true,
+                       model_spec: true,
+                       fixtures: true
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
 
     # query_log_tagsを有効化
     config.active_record.query_log_tags_enabled = true
