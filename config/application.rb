@@ -39,5 +39,8 @@ module MyScenery
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # query_log_tagsを有効化
+    config.active_record.query_log_tags_enabled = true
   end
 end
