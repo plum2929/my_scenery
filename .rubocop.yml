@@ -10,6 +10,11 @@ AllCops:
     - "bin/**/*"
     - "node_modules/**/*"
 
+Metrics/BlockLength:
+  Exclude:
+    - "lib/tasks/auto_annotate_models.rake"
+    - "config/environments/development.rb"
+
 Style/ClassAndModuleChildren:
   Enabled: false
 
