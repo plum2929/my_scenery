@@ -61,6 +61,10 @@ group :development, :test do
 
   # N+1対策
   gem 'bullet'
+
+  # RSpec関連
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -82,4 +86,9 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+end
+
+group :test do
+  gem 'capybara'
+  gem 'webdrivers'
 end
