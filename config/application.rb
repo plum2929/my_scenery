@@ -28,8 +28,14 @@ module MyScenery
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # 言語を日本語に設定
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # タイムゾーンを日本に設定
+    config.time_zone = 'Tokyo'
 
     # Don't generate system test files.
     config.generators.system_tests = nil
