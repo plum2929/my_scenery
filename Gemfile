@@ -93,6 +93,9 @@ group :development do
 
   # モデルのスキーマ情報の表示
   gem 'annotate'
+
+  # Fly.ioデプロイ用
+  gem 'dockerfile-rails', '>= 1.4'
 end
 
 group :test do
