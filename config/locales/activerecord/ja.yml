@@ -13,7 +13,7 @@ ja:
         new_post_notification_allowed: '新規投稿通知許可'
         role: '権限'
       photo:
-        image: '写真'
+        image: '風景写真'
   attributes:
     id: ID
     created_at: '作成日時'

@@ -1,0 +1,10 @@
+= form_with model: photo, class: 'max-w-xs' do |f|
+  .form-control
+    label.label
+      span.label
+        = f.label :image, class: 'text-2xl'
+        p.text-error.ml-1.text-2xl *
+    = f.file_field :image, accept: 'image/*'
+    = f.hidden_field :image_cache
+  .mt-10
+    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block'
