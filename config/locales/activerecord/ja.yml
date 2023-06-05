@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: 'ユーザー'
+      photo: '写真'
     attributes:
       user:
         name: 'ユーザー名'
@@ -11,6 +12,8 @@ ja:
         avatar: 'プロフィール画像'
         new_post_notification_allowed: '新規投稿通知許可'
         role: '権限'
+      photo:
+        image: '風景写真'
   attributes:
     id: ID
     created_at: '作成日時'

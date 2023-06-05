@@ -8,7 +8,7 @@
 #  email                         :string           not null
 #  name                          :string           not null
 #  new_post_notification_allowed :boolean          default(TRUE), not null
-#  role                          :integer          default(0), not null
+#  role                          :integer          default("general"), not null
 #  salt                          :string
 #  created_at                    :datetime         not null
 #  updated_at                    :datetime         not null

@@ -1,0 +1,6 @@
+ja:
+  defaults:
+    post: '投稿する'
+  photos:
+    new:
+      title: '新規投稿'
