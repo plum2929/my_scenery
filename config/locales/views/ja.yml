@@ -1,6 +1,15 @@
 ja:
   defaults:
     post: '投稿する'
+  static_pages:
+    tos: '利用規約'
+    privacy_policy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
+  users:
+    new:
+      title: '新規登録'
+      register: '登録する'
+      to_login_page: 'ログインページへ'
   photos:
     new:
       title: '新規投稿'
