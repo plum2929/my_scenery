@@ -9,6 +9,20 @@ module.exports = {
     require("daisyui")
   ],
   daisyui: {
-    themes: ["cupcake"]
+    themes: [
+      {
+        mytheme: {
+          "primary": "#5bb7d6",
+          "secondary": "#93d1a3",
+          "accent": "#f7bae8",
+          "neutral": "#291334",
+          "base-100": "#FAF7F5",
+          "info": "#5b7ad6",
+          "success": "#a3ccf4",
+          "warning": "#ffd865",
+          "error": "#ea4770",
+        }
+      }
+    ]
   }
 }
