@@ -21,7 +21,7 @@
         label.label
           span.label-text.text-base.required
             = f.label :password
-        = f.password_field :password, placeholder: '8〜16文字でご入力ください', class: 'input input-primary border-opacity-20'
+        = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-primary border-opacity-20'
         = render 'shared/error_messages', object: f.object, attribute: :password
       .form-control
         label.label

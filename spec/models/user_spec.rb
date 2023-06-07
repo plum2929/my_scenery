@@ -82,14 +82,6 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'パスワードがない場合' do
-      it '無効であること' do
-        user_without_password = build(:user, password: '')
-        expect(user_without_password).to be_invalid
-        expect(user_without_password.errors[:password]).to eq [I18n.t('errors.messages.too_short', count: 8)]
-      end
-    end
-
     context 'パスワードが8文字未満の場合' do
       it '無効であること' do
         user_with_short_password = build(:user, password: '')
@@ -98,28 +90,27 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context 'パスワードが17文字以上の場合' do
-      it '無効であること' do
-        user_with_long_password = build(:user, password: 'a' * 17)
-        expect(user_with_long_password).to be_invalid
-        expect(user_with_long_password.errors[:password]).to eq [I18n.t('errors.messages.too_long', count: 16)]
-      end
-    end
-
     context 'パスワード(確認)がない場合' do
       it '無効であること' do
         user_without_password_confirmation = build(:user, password_confirmation: '')
         expect(user_without_password_confirmation).to be_invalid
-        expect(user_without_password_confirmation.errors[:password_confirmation]).to include(I18n.t('errors.messages.blank'))
-        expect(user_without_password_confirmation.errors[:password_confirmation]).to include(I18n.t('errors.messages.confirmation', attribute: User.human_attribute_name(:password)))
+        expect(
+          user_without_password_confirmation.errors[:password_confirmation]
+        ).to include(I18n.t('errors.messages.blank'))
+        expect(
+          user_without_password_confirmation.errors[:password_confirmation]
+        ).to include(I18n.t('errors.messages.confirmation', attribute: User.human_attribute_name(:password)))
       end
     end
 
     context 'パスワードとパスワード(確認)が一致しない場合' do
       it '無効であること' do
-        user_with_different_passwords = build(:user, password: 'password', password_confirmation: 'password_confirmation')
+        user_with_different_passwords = build(:user, password: 'password',
+                                                     password_confirmation: 'other_password')
         expect(user_with_different_passwords).to be_invalid
-        expect(user_with_different_passwords.errors[:password_confirmation]).to eq [I18n.t('errors.messages.confirmation', attribute: User.human_attribute_name(:password))]
+        expect(
+          user_with_different_passwords.errors[:password_confirmation]
+        ).to eq [I18n.t('errors.messages.confirmation', attribute: User.human_attribute_name(:password))]
       end
     end
   end
