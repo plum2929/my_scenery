@@ -1,0 +1,142 @@
+require 'rails_helper'
+
+RSpec.describe 'Users', type: :system do
+  describe 'ログイン前' do
+    describe 'ユーザー新規登録' do
+      context 'フォームの入力が正常' do
+        it 'ユーザーの新規登録が成功する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content 'トップページ'
+          expect(page).to have_current_path root_path
+        end
+      end
+
+      context 'ユーザー名が未入力' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: ''
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.blank')
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'ユーザー名の入力が21文字以上' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'a' * 21
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.too_long', count: 20)
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'メールアドレスが未入力' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: ''
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.blank')
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'メールアドレスが不正な値' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example,com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.invalid')
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context '登録済みのメールアドレスを入力' do
+        it 'ユーザーの新規作成が失敗する' do
+          existing_user = create(:user)
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: existing_user.email
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.taken')
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'パスワードが未入力' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: ''
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.too_short', count: 8)
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'パスワードの入力が8文字未満' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'a' * 7
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t('errors.messages.too_short', count: 8)
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'パスワード(確認)が未入力' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: ''
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t(
+            'errors.messages.confirmation', attribute: User.human_attribute_name(:password)
+          )
+          expect(page).to have_current_path signup_path
+        end
+      end
+
+      context 'パスワードとパスワード(確認)の入力が一致しない' do
+        it 'ユーザーの新規作成が失敗する' do
+          visit signup_path
+          fill_in I18n.t('activerecord.attributes.user.name'), with: 'user_name'
+          fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
+          fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
+          fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'other_password'
+          click_on I18n.t('users.new.register')
+          expect(page).to have_content I18n.t(
+            'errors.messages.confirmation', attribute: User.human_attribute_name(:password)
+          )
+          expect(page).to have_current_path signup_path
+        end
+      end
+    end
+  end
+end
