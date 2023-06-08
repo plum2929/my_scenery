@@ -8,6 +8,11 @@
   color: #E00;
 }
 
+.required-before:before {
+  content: " *";
+  color: #E00;
+}
+
 /* フォーム入力時のエラー表示 */
 span.label-text .field_with_errors {
   display: contents;

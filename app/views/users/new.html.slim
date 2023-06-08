@@ -9,6 +9,8 @@
         label.label
           span.label-text.text-base.required
             = f.label :name
+          spen.label-text.text-base.required-before.text-xs.mb-5
+            = t('defaults.required')
         = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-primary border-opacity-20', autocomplete: 'name'
         = render 'shared/error_messages', object: f.object, attribute: :name
       .form-control.mb-2
@@ -29,16 +31,16 @@
             = f.label :password_confirmation
         = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-primary border-opacity-20'
         = render 'shared/error_messages', object: f.object, attribute: :password_confirmation
-      .mt-5
-        = f.submit t('.register'), class: 'btn btn-primary btn-block text-white'
+      .mt-7
+        = f.submit t('defaults.register'), class: 'btn btn-primary btn-block text-white'
   .grid.place-items-center
-    p.mt-5.px-8.text-xs
+    p.mt-7.px-8.text-xs
       = link_to t('static_pages.tos'), '#', class: 'link link-info'
       | および
       = link_to t('static_pages.privacy_policy'), '#', class: 'link link-info'
       | に同意の上、登録またはログインへお進みください。
-    .divider.w-full.px-10.py-3.md:max-w-2xl
+    .divider.w-full.px-8.py-3.md:max-w-2xl
   .grid.place-items-center
     p すでにアカウントをお持ちの方
     .mt-3.mb-10
-      = link_to t('.to_login_page'), '#', class: 'btn btn-primary btn-outline btn-wide'
+      = link_to t('.to_login_page'), login_path, class: 'btn btn-primary btn-outline btn-wide'
