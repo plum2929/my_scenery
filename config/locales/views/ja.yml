@@ -1,7 +1,9 @@
 ja:
   defaults:
+    logo: 'MyScenery'
     register: '登録する'
     login: 'ログイン'
+    logout: 'ログアウト'
     post: '投稿する'
     required: ' は必須項目です'
   static_pages:
