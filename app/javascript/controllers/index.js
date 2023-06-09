@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import ImageController from "./image_controller"
 application.register("image", ImageController)
+
+import Notification from "stimulus-notification"
+application.register("notification", Notification)
