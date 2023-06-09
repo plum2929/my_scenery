@@ -1,0 +1,19 @@
+.toast.toast-top.toast-end
+  - if success
+    .alert.alert-success.shadow-lg
+      .flex.w-full
+        .flex-1
+          i.far.fa-circle-check.mr-2
+          = success
+        .flex.justify-end
+          btn
+            i.fas.fa-xmark
+  - if warning
+    .alert.alert-warning.shadow-lg
+      .flex.w-full
+        .flex-1
+          i.fas.fa-triangle-exclamation.mr-2
+          = warning
+        .flex.justify-end
+          btn.ml-2
+            i.fas.fa-xmark

@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     @user = login(user_params[:email], user_params[:password])
 
     if @user
-      redirect_back_or_to photos_path
+      redirect_back_or_to photos_path, success: t('.success')
     else
       @user = User.new(user_params)
       @error_message = t('user_sessions.create.error_message')
@@ -19,7 +19,7 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path, status: :see_other
+    redirect_to root_path, status: :see_other, success: t('.success')
   end
 
   private

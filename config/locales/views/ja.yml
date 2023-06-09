@@ -6,6 +6,7 @@ ja:
     logout: 'ログアウト'
     post: '投稿する'
     required: ' は必須項目です'
+    require_login: 'ログインしてください'
   static_pages:
     top:
       to_photos: '風景写真を見てみる'
@@ -23,7 +24,10 @@ ja:
       to_register_page: '新規登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
     create:
+      success: 'ログインしました'
       error_message: 'メールアドレスまたはパスワードが正しくありません'
+    destroy:
+      success: 'ログアウトしました'
   photos:
     new:
       title: '新規投稿'
