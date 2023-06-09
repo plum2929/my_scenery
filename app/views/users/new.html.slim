@@ -11,33 +11,33 @@
             = f.label :name
           spen.label-text.text-base.required-before.text-xs.mb-5
             = t('defaults.required')
-        = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-primary border-opacity-20', autocomplete: 'name'
+        = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-success border-opacity-20', autocomplete: 'name'
         = render 'shared/error_messages', object: f.object, attribute: :name
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :email
-        = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: 'input input-primary border-opacity-20', autocomplete: 'email'
+        = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: 'input input-success border-opacity-20', autocomplete: 'email'
         = render 'shared/error_messages', object: f.object, attribute: :email
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :password
-        = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-primary border-opacity-20'
+        = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-success border-opacity-20'
         = render 'shared/error_messages', object: f.object, attribute: :password
       .form-control
         label.label
           span.label-text.text-base.required
             = f.label :password_confirmation
-        = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-primary border-opacity-20'
+        = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-success border-opacity-20'
         = render 'shared/error_messages', object: f.object, attribute: :password_confirmation
       .mt-7
         = f.submit t('defaults.register'), class: 'btn btn-primary btn-block text-white'
   .grid.place-items-center
     p.mt-7.px-8.text-xs
-      = link_to t('static_pages.tos'), '#', class: 'link link-info'
+      = link_to t('static_pages.tos'), '#', class: 'link text-blue-500'
       | および
-      = link_to t('static_pages.privacy_policy'), '#', class: 'link link-info'
+      = link_to t('static_pages.privacy_policy'), '#', class: 'link text-blue-500'
       | に同意の上、登録またはログインへお進みください。
     .divider.w-full.px-8.py-3.md:max-w-2xl
   .grid.place-items-center

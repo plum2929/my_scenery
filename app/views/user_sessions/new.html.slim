@@ -4,7 +4,7 @@
     h1.text-2xl.pt-10.pb-5
       = t('.title')
     - if @error_message.present?
-      p.text-error.text-sm.mb-5
+      p.text-red-500.text-sm.mb-5
         i.fas.fa-triangle-exclamation.mr-1
         = @error_message
   .grid.place-items-center
@@ -13,22 +13,22 @@
         label.label
           span.label-text.text-base
             = f.label :email, User.human_attribute_name(:email)
-        = f.text_field :email, class: 'input input-primary border-opacity-20', autocomplete: 'email'
+        = f.text_field :email, class: 'input input-success border-opacity-20', autocomplete: 'email'
       .form-control.mb-2
         label.label
           span.label-text.text-base
             = f.label :password,  User.human_attribute_name(:password)
-        = f.password_field :password, class: 'input input-primary border-opacity-20'
+        = f.password_field :password, class: 'input input-success border-opacity-20'
       .mt-7.mb-2
         = f.submit t('defaults.login'), class: 'btn btn-primary btn-block text-white'
     .grid.place-items-center
       .mt-5
-        = link_to t('.password_forget'), '#', class: 'link link-info text-sm'
+        = link_to t('.password_forget'), '#', class: 'link text-blue-500 text-sm'
   .grid.place-items-center
     p.mt-7.px-8.text-xs
-      = link_to t('static_pages.tos'), '#', class: 'link link-info'
+      = link_to t('static_pages.tos'), '#', class: 'link text-blue-500'
       | および
-      = link_to t('static_pages.privacy_policy'), '#', class: 'link link-info'
+      = link_to t('static_pages.privacy_policy'), '#', class: 'link text-blue-500'
       | に同意の上、登録またはログインへお進みください。
     .divider.w-full.px-8.py-3.md:max-w-2xl
   .grid.place-items-center
