@@ -10,7 +10,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content 'トップページ'
           expect(page).to have_current_path root_path
         end
@@ -23,7 +23,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.blank')
           expect(page).to have_current_path signup_path
         end
@@ -36,7 +36,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.too_long', count: 20)
           expect(page).to have_current_path signup_path
         end
@@ -49,7 +49,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: ''
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.blank')
           expect(page).to have_current_path signup_path
         end
@@ -62,7 +62,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example,com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.invalid')
           expect(page).to have_current_path signup_path
         end
@@ -76,7 +76,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: existing_user.email
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.taken')
           expect(page).to have_current_path signup_path
         end
@@ -89,7 +89,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: ''
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.too_short', count: 8)
           expect(page).to have_current_path signup_path
         end
@@ -102,7 +102,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'a' * 7
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t('errors.messages.too_short', count: 8)
           expect(page).to have_current_path signup_path
         end
@@ -115,7 +115,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: ''
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t(
             'errors.messages.confirmation', attribute: User.human_attribute_name(:password)
           )
@@ -130,12 +130,24 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'other_password'
-          click_on I18n.t('users.new.register')
+          click_button I18n.t('defaults.register')
           expect(page).to have_content I18n.t(
             'errors.messages.confirmation', attribute: User.human_attribute_name(:password)
           )
           expect(page).to have_current_path signup_path
         end
+      end
+    end
+  end
+
+  describe 'ログイン後' do
+    context 'ユーザー新規登録ページへアクセス' do
+      it '投稿一覧ページへリダイレクトされること' do
+        user = create(:user)
+        login_as(user)
+        expect(page).to have_content I18n.t('user_sessions.create.success')
+        visit signup_path
+        expect(page).to have_current_path photos_path
       end
     end
   end
