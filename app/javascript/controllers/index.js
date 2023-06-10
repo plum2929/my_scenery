@@ -9,3 +9,6 @@ application.register("image", ImageController)
 
 import Notification from "stimulus-notification"
 application.register("notification", Notification)
+
+import PasswordVisibility from "stimulus-password-visibility"
+application.register("password-visibility", PasswordVisibility)

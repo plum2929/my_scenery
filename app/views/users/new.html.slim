@@ -11,25 +11,37 @@
             = f.label :name
           spen.label-text.text-base.required-before.text-xs.mb-5
             = t('defaults.required')
-        = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-success border-opacity-20', autocomplete: 'name'
+        = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-info', autocomplete: 'name'
         = render 'shared/error_messages', object: f.object, attribute: :name
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :email
-        = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: 'input input-success border-opacity-20', autocomplete: 'email'
+        = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: 'input input-info', autocomplete: 'email'
         = render 'shared/error_messages', object: f.object, attribute: :email
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :password
-        = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-success border-opacity-20'
+        .w-full.indicator.input-success  data-controller="password-visibility"
+          = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-info flex-1', data: { password_visibility_target: 'input' }, spellcheck: 'false'
+          button.indicator-item.indicator-middle.pb-5.mr-6.md:mr-7.text-sm.text-slate-500 type="button" data-action="password-visibility#toggle"
+            span data-password-visibility-target="icon"
+              i.far.fa-eye
+            span.hidden data-password-visibility-target="icon"
+              i.far.fa-eye-slash
         = render 'shared/error_messages', object: f.object, attribute: :password
       .form-control
         label.label
           span.label-text.text-base.required
             = f.label :password_confirmation
-        = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-success border-opacity-20'
+        .w-full.indicator.input-success  data-controller="password-visibility"
+          = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-info flex-1', data: { password_visibility_target: 'input' }, spellcheck: 'false'
+          button.indicator-item.indicator-middle.pb-5.mr-6.md:mr-7.text-sm.text-slate-500 type="button" data-action="password-visibility#toggle"
+            span data-password-visibility-target="icon"
+              i.far.fa-eye
+            span.hidden data-password-visibility-target="icon"
+              i.far.fa-eye-slash
         = render 'shared/error_messages', object: f.object, attribute: :password_confirmation
       .mt-7
         = f.submit t('defaults.register'), class: 'btn btn-primary btn-block text-white'
