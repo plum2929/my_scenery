@@ -26,11 +26,7 @@
             = f.label :password
         .w-full.indicator.input-success  data-controller='password-visibility'
           = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password' }, spellcheck: 'false'
-          button.indicator-item.indicator-middle.pb-5.mr-6.md:mr-7.text-sm.text-slate-500 type='button' data-action='password-visibility#toggle'
-            span data-password-visibility-target='icon'
-              i.far.fa-eye
-            span.hidden data-password-visibility-target='icon'
-              i.far.fa-eye-slash
+          = render 'shared/password_visibility'
         p data-signup-target='error_password'
       .form-control
         label.label
@@ -38,11 +34,7 @@
             = f.label :password_confirmation
         .w-full.indicator.input-success  data-controller='password-visibility'
           = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password_confirmation' }, spellcheck: 'false'
-          button.indicator-item.indicator-middle.pb-5.mr-6.md:mr-7.text-sm.text-slate-500 type='button' data-action='password-visibility#toggle'
-            span data-password-visibility-target='icon'
-              i.far.fa-eye
-            span.hidden data-password-visibility-target='icon'
-              i.far.fa-eye-slash
+          = render 'shared/password_visibility'
         p data-signup-target='error_password_confirmation'
       .mt-7
         = f.submit t('defaults.register'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { signup_target: 'submit' }
