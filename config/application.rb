@@ -55,5 +55,8 @@ module MyScenery
 
     # query_log_tagsを有効化
     config.active_record.query_log_tags_enabled = true
+
+    # field_with_errorsタグを非表示
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
 end
