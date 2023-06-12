@@ -8,21 +8,23 @@
         i.fas.fa-triangle-exclamation.mr-1
         = @error_message
   .grid.place-items-center
-    = form_with model: @user, url: login_path, method: :post, class: 'w-full px-8 md:max-w-2xl' do |f|
+    = form_with model: @user, url: login_path, method: :post, class: 'w-full px-8 md:max-w-2xl', data: { controller: 'login' } do |f|
       .form-control.mb-2
         label.label
           span.label-text.text-base
             = f.label :email, User.human_attribute_name(:email)
-        = f.text_field :email, class: 'input input-info', autocomplete: 'email'
+        = f.text_field :email, class: 'input input-info', autocomplete: 'email', data: { login_target: 'email' }
+        p data-login-target='error_email'
       .form-control.mb-2
         label.label
           span.label-text.text-base
             = f.label :password,  User.human_attribute_name(:password)
         .w-full.indicator.input-success  data-controller='password-visibility'
-          = f.password_field :password, class: 'input input-info flex-1', data: { password_visibility_target: 'input' }, spellcheck: 'false'
+          = f.password_field :password, class: 'input input-info flex-1', data: { password_visibility_target: 'input', login_target: 'password' }, spellcheck: 'false'
           = render 'shared/password_visibility'
+        p data-login-target='error_password'
       .mt-7.mb-2
-        = f.submit t('defaults.login'), class: 'btn btn-primary btn-block text-white'
+        = f.submit t('defaults.login'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { login_target: 'submit' }
     .grid.place-items-center
       .mt-5
         = link_to t('.password_forget'), '#', class: 'link text-blue-500 text-sm'
