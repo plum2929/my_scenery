@@ -1,0 +1,6 @@
+- if object.errors.present?
+  - object.errors.full_messages.each do |message|
+    .grid.place-items-center
+      p.text-error.text-sm.mb-2
+        i.fas.fa-triangle-exclamation.mr-1
+        = message

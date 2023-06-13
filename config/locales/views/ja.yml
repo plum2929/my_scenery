@@ -1,6 +1,33 @@
 ja:
   defaults:
+    title: 'MyScenery'
+    register: '登録する'
+    login: 'ログイン'
+    logout: 'ログアウト'
     post: '投稿する'
+    required: ' は必須項目です'
+    require_login: 'ログインしてください'
+  static_pages:
+    top:
+      to_photos: '風景写真を見てみる'
+      create_account: 'アカウントを作成する'
+    tos: '利用規約'
+    privacy_policy: 'プライバシーポリシー'
+    contact: 'お問い合わせ'
+  users:
+    new:
+      title: '新規登録'
+      to_login_page: 'ログインページへ'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      to_register_page: '新規登録ページへ'
+      password_forget: 'パスワードをお忘れの方はこちら'
+    create:
+      success: 'ログインしました'
+      error_message: 'メールアドレスまたはパスワードが正しくありません'
+    destroy:
+      success: 'ログアウトしました'
   photos:
     new:
       title: '新規投稿'

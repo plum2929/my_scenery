@@ -6,3 +6,15 @@ import { application } from "./application"
 
 import ImageController from "./image_controller"
 application.register("image", ImageController)
+
+import LoginController from "./login_controller"
+application.register("login", LoginController)
+
+import SignupController from "./signup_controller"
+application.register("signup", SignupController)
+
+import Notification from "stimulus-notification"
+application.register("notification", Notification)
+
+import PasswordVisibility from "stimulus-password-visibility"
+application.register("password-visibility", PasswordVisibility)

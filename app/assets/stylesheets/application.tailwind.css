@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 必須項目 */
+.required:after {
+  content: " *";
+  color: #ff3232;
+}
+
+.required-before:before {
+  content: " *";
+  color: #ff3232;
+}

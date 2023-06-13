@@ -47,13 +47,16 @@ module MyScenery
                        helper_specs: false,
                        routing_specs: false,
                        controller_specs: false,
-                       request_specs: true,
-                       model_spec: true,
+                       request_specs: false,
+                       model_specs: true,
                        fixtures: true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
 
     # query_log_tagsを有効化
     config.active_record.query_log_tags_enabled = true
+
+    # field_with_errorsタグを非表示
+    config.action_view.field_error_proc = proc { |html_tag, _instance| html_tag }
   end
 end

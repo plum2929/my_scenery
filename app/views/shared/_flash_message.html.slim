@@ -1,0 +1,25 @@
+div[data-controller='notification'
+    class='transition transform duration-1000 hidden toast md:toast-top md: mt-12'
+    data-notification-delay-value='3000'
+    data-transition-enter-from='opacity-0 translate-x-6'
+    data-transition-enter-to='opacity-100 translate-x-0'
+    data-transition-leave-from='opacity-100 translate-x-0'
+    data-transition-leave-to='opacity-0 translate-x-6']
+  - if success
+    .alert.alert-success.shadow-lg
+      .flex.w-full
+        .flex-1
+          i.far.fa-circle-check.mr-2
+          = success
+        .flex.justify-end
+          button data-action='notification#hide'
+            i.fas.fa-xmark
+  - if warning
+    .alert.alert-warning.shadow-lg
+      .flex.w-full
+        .flex-1
+          i.fas.fa-triangle-exclamation.mr-2
+          = warning
+        .flex.justify-end
+          button data-action='notification#hide'
+            i.fas.fa-xmark
