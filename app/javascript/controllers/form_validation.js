@@ -69,10 +69,10 @@ export const confirmationValidation = (passwordInput, confirmationInput, error) 
   }
 }
 
-export const checkBlank = (input, error, message) => {
+export const checkBlank = (input) => {
   if(input.value.trim() === ''){
-    showErrorMessage(input, error, message)
+    input.classList.add('field-invalid')
   }else{
-    removeErrorMessage(input, error)
+    input.classList.remove('field-invalid')
   }
 }
