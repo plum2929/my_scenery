@@ -8,7 +8,7 @@
         i.fas.fa-triangle-exclamation.mr-1
         = @error_message
   .grid.place-items-center
-    = form_with model: @user, url: login_path, method: :post, class: 'w-full px-8 md:max-w-2xl', data: { controller: 'login' } do |f|
+    = form_with model: @user, url: login_path, method: :post, class: 'w-full px-8 sm:max-w-xl', data: { controller: 'login' } do |f|
       .form-control.mb-2
         label.label
           span.label-text.text-base
