@@ -7,10 +7,10 @@ ja:
     post: '投稿する'
     required: ' は必須項目です'
     require_login: 'ログインしてください'
+    create_account: 'アカウントを作成する'
   static_pages:
     top:
       to_photos: '風景写真を見てみる'
-      create_account: 'アカウントを作成する'
     tos: '利用規約'
     privacy_policy: 'プライバシーポリシー'
     contact: 'お問い合わせ'
@@ -29,5 +29,9 @@ ja:
     destroy:
       success: 'ログアウトしました'
   photos:
+    index:
+      title: '投稿一覧'
+      to_login_page: 'ログインする'
+      to_new_photo_page: '風景写真を投稿する'
     new:
       title: '新規投稿'

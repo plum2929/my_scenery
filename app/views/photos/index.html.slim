@@ -1,2 +1,19 @@
-h1 Photos#index
-p Find me in app/views/photos/index.html.slim
+- content_for(:title, t('.title'))
+.container.mx-auto
+  - if @photos.present?
+    .mt-10.sm:columns-2.lg:columns-3.2xl:columns-4
+      = render @photos
+  - else
+    .grid.place-items-center
+      .grid.place-items-center.mt-20
+        p.text-lg まだ投稿がありません
+        p.my-8 風景写真を投稿してみませんか？
+        - if logged_in?
+          .w-full
+            = link_to t('.to_new_photo_page'), new_photo_path, class: 'btn btn-primary btn-block btn-wide text-white'
+        - else
+          .w-full
+            = link_to t('.to_login_page'), login_path, class: 'btn btn-primary btn-block btn-wide text-white'
+          .divider.my-5.text-gray-400 OR
+          .w-full.mb-10
+            = link_to t('defaults.create_account'), signup_path, class: 'btn btn-primary btn-wide text-white'
