@@ -1,0 +1,6 @@
+= turbo_stream.append :photos do
+  = render @photos
+
+- if @pagy.next.present?
+  = turbo_stream.replace :load_more do
+    = turbo_frame_tag :load_more, loading: :lazy, src: photos_path(page: @pagy.next, format: :turbo_stream)
