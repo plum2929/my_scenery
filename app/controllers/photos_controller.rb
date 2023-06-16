@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def index
-    @photos = Photo.all
+    @pagy, @photos = pagy(Photo.all)
   end
 
   def show; end

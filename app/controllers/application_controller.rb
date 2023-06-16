@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   before_action :require_login
   add_flash_types :info, :success, :warning
+
 
   private
 
