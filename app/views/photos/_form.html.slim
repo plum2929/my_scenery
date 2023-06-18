@@ -11,4 +11,4 @@
     - else
       = image_tag '', data: { image_target: 'preview'  }
   .mt-5
-    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white'
+    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white', data: { turbo: false }
