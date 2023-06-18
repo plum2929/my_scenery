@@ -1,2 +1,2 @@
-.mb-5.sm:mb-4 id='photo-id-#{photo.id}'
+.photo.block.w-full.mb-5 class='md:w-[330px] lg:w-[380px]' id='photo-id-#{photo.id}' data-controller='photo_layout' data-action='resize@window->photo_layout#resize'
   = link_to image_tag(photo.image_url, class: 'w-full sm:rounded-lg'), photo_path(photo)

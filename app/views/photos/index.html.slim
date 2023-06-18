@@ -1,10 +1,11 @@
 - content_for(:title, t('.title'))
-.container.mx-auto
-  - if @photos.present?
-    .mt-10.sm:columns-2.lg:columns-3.2xl:columns-4
+- if @photos.present?
+  .container.max-w-full.mx-0.my-10
+    .grid.place-items-center.mx-auto.sm:px-10
       #photos
       = turbo_frame_tag :load_more, loading: :lazy, src: photos_path(format: :turbo_stream)
-  - else
+- else
+  .container.mx-auto
     .grid.place-items-center
       .grid.place-items-center.mt-20
         p.text-lg まだ投稿がありません
