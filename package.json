@@ -13,7 +13,6 @@
     "daisyui": "^2.52.0",
     "esbuild": "^0.17.19",
     "imagesloaded": "^5.0.0",
-    "masonry-layout": "^4.2.2",
     "postcss": "^8.4.24",
     "stimulus-notification": "^2.2.0",
     "stimulus-password-visibility": "^2.1.1",
