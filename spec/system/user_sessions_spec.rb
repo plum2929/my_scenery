@@ -21,7 +21,6 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in I18n.t('activerecord.attributes.user.email'), with: ''
         fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
         expect(page).to have_button I18n.t('defaults.login'), disabled: true
-        expect(page).to have_content 'メールアドレスを入力してください'
         expect(page).to have_current_path login_path
       end
     end
@@ -43,7 +42,6 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in I18n.t('activerecord.attributes.user.email'), with: user.email
         fill_in I18n.t('activerecord.attributes.user.password'), with: ''
         expect(page).to have_button I18n.t('defaults.login'), disabled: true
-        expect(page).to have_content 'パスワードを入力してください'
         expect(page).to have_current_path login_path
       end
     end

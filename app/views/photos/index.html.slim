@@ -1,2 +1,21 @@
-h1 Photos#index
-p Find me in app/views/photos/index.html.slim
+- content_for(:title, t('.title'))
+- if @photos.present?
+  .container.max-w-full.mx-0.my-10
+    .grid.place-items-center.mx-auto.sm:px-10
+      #photos.grid.place-items-center.md:grid-cols-2.lg:grid-cols-3.2xl:grid-cols-4
+      = turbo_frame_tag :load_more, loading: :lazy, src: photos_path(format: :turbo_stream)
+- else
+  .container.mx-auto
+    .grid.place-items-center
+      .grid.place-items-center.mt-20
+        p.text-lg まだ投稿がありません
+        p.my-8 風景写真を投稿してみませんか？
+        - if logged_in?
+          .w-full
+            = link_to t('.to_new_photo_page'), new_photo_path, class: 'btn btn-primary btn-block btn-wide text-white'
+        - else
+          .w-full
+            = link_to t('.to_login_page'), login_path, class: 'btn btn-primary btn-block btn-wide text-white'
+          .divider.my-5.text-gray-400 OR
+          .w-full.mb-10
+            = link_to t('defaults.create_account'), signup_path, class: 'btn btn-primary btn-wide text-white'
