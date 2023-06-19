@@ -1,6 +1,7 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
+import './cache_control'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
