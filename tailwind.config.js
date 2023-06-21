@@ -9,6 +9,12 @@ module.exports = {
     extend: {
       fontFamily: {
         title: ['Petrona', 'serif']
+      },
+      fontSize: {
+        xxs: ['10px', '6px']
+      },
+      colors: {
+        'icon': '#78a5b4'
       }
     }
   },
@@ -23,7 +29,7 @@ module.exports = {
           "secondary": "#93d1a3",
           "accent": "#056382",
           "neutral": "#291334",
-          "base-100": "#ffffff",
+          "base-100": "#F7FAFB",
           "base-200": "#eaf6f9",
           "info": "#c9e0e8",
           "success": "#cce5ff",
