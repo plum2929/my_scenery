@@ -1,0 +1,16 @@
+.btm-nav.btm-nav-sm.bg-base-200.z-10.text-xl.text-icon.sm:hidden
+  = link_to photos_path do
+    i.fas.fa-image
+    p.text-xxs.font-bold = t('defaults.photos')
+  = link_to '#' do
+    i.fas.fa-lightbulb
+    p.text-xxs.font-bold = t('defaults.interested')
+  = link_to new_photo_path do
+    i.fas.fa-plus
+    p.text-xxs.font-bold = t('defaults.new_post')
+  = link_to '#' do
+    i.fas.fa-images
+    p.text-xxs.font-bold = t('defaults.album')
+  = link_to '#' do
+    i.fas.fa-user
+    p.text-xxs.font-bold = t('defaults.my_page')
