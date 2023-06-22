@@ -1,0 +1,25 @@
+.flex-1.px-4.sm:px-7.text-accent.text-xl.font-title
+  = link_to t('defaults.title'), root_path
+.flex.justify-end.items-center.gap-5.sm:gap-8.text-icon
+  = link_to '#' do
+    .mt-1.text-lg.sm:text-xl
+      i.fas.fa-magnifying-glass
+  = link_to '#' do
+    .mt-1.text-lg.sm:text-xl
+      i.fas.fa-map-location-dot
+  = link_to login_path do
+    .inline-block.text-center
+      .mt-1.text-lg.sm:text-xl
+        i.fas.fa-right-to-bracket
+      p.text-xxs.font-bold = t('defaults.login')
+  .dropdown.dropdown-end.pr-5.sm:pr-8
+    i.fas.fa-bars.mt-1.text-lg.sm:text-xl.cursor-pointer tabindex='0'
+    ul.dropdown-content.menu.shadow.bg-base-100.rounded-box.w-52.sm:w-60.mt-3.sm:mt-4.pt-6.pb-8.text-accent tabindex='0'
+      = link_to signup_path, class: 'mt-1 mb-2 px-8' do
+        i.fas.fa-user-plus.text-lg.pr-2
+        = t('defaults.signup')
+      .divider.my-3
+      = link_to t('static_pages.tos'), '#', class: 'text-sm mb-4 px-8'
+      = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm mb-4 px-8'
+      = link_to t('static_pages.contact'), '#', class: 'text-sm mb-5 px-8'
+      p.text-xxs.text-icon.px-8 = t('defaults.copyright')

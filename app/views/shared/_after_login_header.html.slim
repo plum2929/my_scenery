@@ -1,39 +1,6 @@
-header.flex.items-center.w-full.h-12.md:h-14.bg-base-200
-  .flex-1.px-4.md:px-7.text-accent.text-xl.font-title
-    = link_to t('defaults.title'), photos_path
-  .flex.justify-end.items-center.gap-7.text-icon
-    = link_to '#' do
-      .mt-1.text-lg.md:text-xl
-        i.fas.fa-magnifying-glass
-    = link_to '#' do
-      .mt-1.text-lg.md:text-xl
-        i.fas.fa-map-location-dot
-    = link_to new_photo_path, class: 'hidden md:flex' do
-      .mt-1.text-lg.md:text-xl
-        i.fas.fa-plus
-    = link_to '#' do
-      .mt-1.text-lg.md:text-xl
-        i.fas.fa-bell
-    .dropdown.dropdown-end.pr-5.md:pr-8
-      i.fas.fa-bars.mt-1.text-lg.md:text-xl.cursor-pointer tabindex='0'
-      ul.dropdown-content.menu.shadow.bg-base-100.rounded-box.w-52.md:w-60.mt-3.md:mt-4.pt-6.pb-8.text-accent tabindex='0'
-        = link_to '#', class: 'mt-1 mb-5 px-8 hidden md:flex' do
-            i.fas.fa-lightbulb.text-lg.pl-1.pr-3
-            = t('defaults.interested')
-        = link_to '#', class: 'mt-1 mb-5 px-8 hidden md:flex' do
-            i.fas.fa-images.text-lg.pr-2
-            = t('defaults.album')
-        = link_to '#', class: 'mt-1 mb-5 px-8 hidden md:flex' do
-            i.fas.fa-user.text-lg.pr-1.md:pr-3
-            = t('defaults.my_page')
-        = link_to '#', class: 'mt-1 mb-5 px-8' do
-            i.fas.fa-gear.text-lg.pr-1.md:pr-3
-            = t('defaults.account_settings')
-        = link_to logout_path, class: 'px-8', data: { turbo_method: :delete } do
-            i.fas.fa-right-from-bracket.text-lg.pr-1.md:pr-3
-            = t('defaults.logout')
-        .divider.my-3
-        = link_to t('static_pages.tos'), '#', class: 'text-sm mb-4 px-8'
-        = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm mb-4 px-8'
-        = link_to t('static_pages.contact'), '#', class: 'text-sm mb-5 px-8'
-        p.text-xxs.text-icon.px-8 = t('defaults.copyright')
+- if current_page?(photos_path)
+  header.transition-all.duration-300.ease--in-out.z-20.flex.items-center.w-full.h-12.sm:h-14.bg-base-200 data-controller='header' data-header-target='header'
+    = render 'shared/after_login_header_contents'
+- else
+  header.flex.items-center.w-full.h-12.sm:h-14.bg-base-200
+    = render 'shared/after_login_header_contents'

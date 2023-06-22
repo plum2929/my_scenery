@@ -13,3 +13,8 @@
   content: " *";
   color: #ff3232;
 }
+
+/* ヘッダー非表示 */
+header.fixed-hide{
+  top: -55px;
+}
