@@ -11,7 +11,7 @@ module.exports = {
         title: ['Petrona', 'serif']
       },
       fontSize: {
-        xxs: ['10px', '6px']
+        xxs: ['10px', '8px']
       },
       colors: {
         'icon': '#78a5b4'

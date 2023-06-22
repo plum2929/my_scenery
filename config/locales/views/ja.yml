@@ -6,6 +6,8 @@ ja:
     login: 'ログイン'
     logout: 'ログアウト'
     post: '投稿する'
+    photos: '投稿一覧'
+    new_post: '新規投稿'
     interested: '気になる'
     album: 'アルバム'
     my_page: 'マイページ'

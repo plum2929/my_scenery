@@ -12,8 +12,9 @@ html
   body
     - if logged_in?
       = render 'shared/after_login_header'
-      = render 'shared/navbar'
+      = render 'shared/after_login_navbar'
     - else
       = render 'shared/before_login_header'
+      = render 'shared/before_login_navbar'
     = render 'shared/flash_message'
     = yield
