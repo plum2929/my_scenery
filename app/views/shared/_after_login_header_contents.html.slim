@@ -7,10 +7,10 @@
   = link_to '#' do
     .text-lg.sm:text-xl
       i.fas.fa-map-location-dot
-  = link_to photos_path, class: 'hidden sm:flex' do
+  = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
     .text-lg.sm:text-xl
       i.fas.fa-image
-  = link_to new_photo_path, class: 'hidden sm:flex' do
+  = link_to new_photo_path, class: "hidden sm:flex #{current_page_icon(new_photo_path)}" do
     .text-lg.sm:text-xl
       i.fas.fa-plus
   = link_to '#' do

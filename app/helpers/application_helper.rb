@@ -6,4 +6,10 @@ module ApplicationHelper
 
     page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
+
+  def current_page_icon(path)
+    if current_page?(path)
+      'text-accent'
+    end
+  end
 end
