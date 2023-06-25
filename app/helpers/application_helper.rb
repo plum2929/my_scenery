@@ -8,8 +8,6 @@ module ApplicationHelper
   end
 
   def current_page_icon(path)
-    if current_page?(path)
-      'text-accent'
-    end
+    current_page?(path) ? 'text-accent' : ''
   end
 end
