@@ -19,10 +19,10 @@
     .inline-block.text-center.text-lg.sm:text-xl
       i.fas.fa-user-plus
       p.text-xxs.font-bold = t('defaults.signup')
-  .dropdown.dropdown-end.pr-6.sm:pr-8
-    i.fas.fa-bars.mt-1.text-lg.sm:text-xl.cursor-pointer tabindex='0'
-    ul.dropdown-content.menu.shadow.bg-base-100.rounded-box.w-52.sm:w-60.mt-3.sm:mt-4.pt-6.pb-8.text-accent tabindex='0'
-      = link_to t('static_pages.tos'), '#', class: 'text-sm mb-4 px-8'
-      = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm mb-4 px-8'
-      = link_to t('static_pages.contact'), '#', class: 'text-sm mb-5 px-8'
+  #menu.z-10.pr-6.sm:pr-8 data-controller='menu' data-menu-target='menu'
+    .menu-btn.btn.btn-ghost.btn-square.btn-sm data-action='click->menu#clickMenuBtn click@document->menu#clickDocument'
+    ul.menu-content.hidden.menu.shadow.bg-base-100.rounded-bl-lg.w-52.sm:w-60.mt-2.5.sm:mt-3.5.pt-4.pb-8.text-accent data-menu-target='content'
+      li  = link_to t('static_pages.tos'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.contact'), '#', class: 'text-sm mb-4 px-8 py-2 w-52 sm:w-60'
       p.text-xxs.text-icon.px-8 = t('defaults.copyright')

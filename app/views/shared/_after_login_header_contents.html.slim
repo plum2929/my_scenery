@@ -1,41 +1,46 @@
 .flex-1.px-4.sm:px-7.text-accent.text-xl.font-title
   = link_to t('defaults.title'), photos_path
-.flex.justify-end.items-center.gap-7.text-icon
+.flex.justify-end.items-center.text-icon
   = link_to '#' do
-    .text-lg.sm:text-xl
+    .text-lg.sm:text-xl.pr-7
       i.fas.fa-magnifying-glass
   = link_to '#' do
-    .text-lg.sm:text-xl
+    .text-lg.sm:text-xl.pr-7
       i.fas.fa-map-location-dot
   = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
-    .text-lg.sm:text-xl
+    .text-lg.sm:text-xl.pr-7
       i.fas.fa-image
   = link_to new_photo_path, class: "hidden sm:flex #{current_page_icon(new_photo_path)}" do
-    .text-lg.sm:text-xl
+    .text-lg.sm:text-xl.pr-7
       i.fas.fa-plus
   = link_to '#' do
-    .text-lg.sm:text-xl
+    .text-lg.sm:text-xl.pr-5
       i.fas.fa-bell
-  .dropdown.dropdown-end.pr-6.sm:pr-8
-    i.fas.fa-bars.mt-1.text-lg.sm:text-xl.cursor-pointer tabindex='0'
-    ul.dropdown-content.menu.shadow.bg-base-100.rounded-box.w-52.sm:w-60.mt-3.sm:mt-4.pt-6.pb-8.text-accent tabindex='0'
-      = link_to '#', class: 'mt-1 mb-5 px-8 hidden sm:flex' do
-          i.fas.fa-lightbulb.text-lg.pl-1.pr-3
-          = t('defaults.interested')
-      = link_to '#', class: 'mt-1 mb-5 px-8 hidden sm:flex' do
-          i.fas.fa-images.text-lg.pr-2
-          = t('defaults.album')
-      = link_to '#', class: 'mt-1 mb-5 px-8 hidden sm:flex' do
-          i.fas.fa-user.text-lg.pr-1.sm:pr-3
-          = t('defaults.my_page')
-      = link_to '#', class: 'mt-1 mb-5 px-8' do
-          i.fas.fa-gear.text-lg.pr-1.sm:pr-3
-          = t('defaults.account_settings')
-      = link_to logout_path, class: 'px-8', data: { turbo_method: :delete } do
-          i.fas.fa-right-from-bracket.text-lg.pr-1.sm:pr-3
-          = t('defaults.logout')
-      .divider.my-3
-      = link_to t('static_pages.tos'), '#', class: 'text-sm mb-4 px-8'
-      = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm mb-4 px-8'
-      = link_to t('static_pages.contact'), '#', class: 'text-sm mb-5 px-8'
+  #menu.z-10.pr-6.sm:pr-8 data-controller='menu' data-menu-target='menu'
+    .menu-btn.btn.btn-ghost.btn-square.btn-sm data-action='click->menu#clickMenuBtn click@document->menu#clickDocument'
+    ul.menu-content.hidden.menu.shadow.bg-base-100.rounded-bl-lg.w-52.sm:w-60.mt-2.5.sm:mt-3.5.pt-4.pb-8.text-accent data-menu-target='content'
+      li
+        = link_to '#', class: 'px-8 sm:w-60 hidden sm:flex' do
+            i.fas.fa-lightbulb.text-lg.sm:px-1
+            = t('defaults.interested')
+      li
+        = link_to '#', class: 'px-8 sm:w-60 hidden sm:flex' do
+            i.fas.fa-images.text-lg
+            = t('defaults.album')
+      li
+        = link_to '#', class: 'px-8 sm:w-60 hidden sm:flex' do
+            i.fas.fa-user.text-lg class='sm:pl-0.5 sm:pr-0.5'
+            = t('defaults.my_page')
+      li
+        = link_to '#', class: 'px-8 w-52 sm:w-60' do
+            i.fas.fa-gear.text-lg class='sm:pl-0.5'
+            = t('defaults.account_settings')
+      li
+        = link_to logout_path, class: 'px-8 w-52 sm:w-60', data: { turbo_method: :delete } do
+            i.fas.fa-right-from-bracket.text-lg class='sm:pl-0.5'
+            = t('defaults.logout')
+      .divider.w-full.my-1
+      li  = link_to t('static_pages.tos'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.contact'), '#', class: 'text-sm mb-4 px-8 py-2 w-52 sm:w-60'
       p.text-xxs.text-icon.px-8 = t('defaults.copyright')
