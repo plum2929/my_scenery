@@ -6,37 +6,34 @@ export default class extends Controller {
 
   connect() {
     const header = this.headerTarget
-    const headerHeight = header.offsetHeight
     const container = document.getElementsByClassName('container')[0]
-    let margin_top = ''
+    let headerHeight = header.offsetHeight
     let scrollPoint = 0
     let lastPoint = 0
 
-    if(headerHeight === 48) {
-      margin_top = 'mt-12'
-    }else if(headerHeight === 56) {
-      margin_top = 'mt-14'
-    }
+    window.addEventListener('resize', () => {
+      headerHeight = header.offsetHeight
+    })
 
     window.addEventListener("scroll", () => {
       scrollPoint = window.scrollY
 
       if(scrollPoint < headerHeight) {
         header.classList.remove('fixed-hide','fixed', 'top-0')
-        container.classList.remove(margin_top)
+        container.style.marginTop = 0
         if(scrollPoint < lastPoint) {
           header.classList.add('fixed', 'top-0')
           header.classList.remove('fixed-hide')
-          container.classList.add(margin_top)
+          container.style.marginTop = `${headerHeight}px`
         }
       }else{
-        if(scrollPoint > lastPoint){
+        if(scrollPoint > lastPoint) {
           header.classList.add('fixed-hide', 'fixed', 'top-0')
-          container.classList.add(margin_top)
+          container.style.marginTop = `${headerHeight}px`
         }else{
           header.classList.add('fixed', 'top-0')
           header.classList.remove('fixed-hide')
-          container.classList.add(margin_top)
+          container.style.marginTop = `${headerHeight}px`
         }
       }
       lastPoint = scrollPoint
