@@ -1,0 +1,28 @@
+.flex-1.px-4.sm:px-7.text-accent.text-xl.font-title
+  = link_to t('defaults.title'), root_path
+.flex.justify-end.items-center.gap-7.text-icon
+  = link_to '#' do
+    .text-lg.sm:text-xl
+      i.fas.fa-magnifying-glass
+  = link_to '#' do
+    .text-lg.sm:text-xl
+      i.fas.fa-map-location-dot
+  = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
+    .inline-block.text-center.text-lg.sm:text-xl
+      i.fas.fa-image
+      p.text-xxs.font-bold = t('defaults.photos')
+  = link_to login_path, class: "hidden sm:flex #{current_page_icon(login_path)}" do
+    .inline-block.text-center.text-lg.sm:text-xl
+      i.fas.fa-right-to-bracket
+      p.text-xxs.font-bold = t('defaults.login')
+  = link_to signup_path, class: "hidden sm:flex #{current_page_icon(signup_path)}" do
+    .inline-block.text-center.text-lg.sm:text-xl
+      i.fas.fa-user-plus
+      p.text-xxs.font-bold = t('defaults.signup')
+  #menu.z-10.pr-6.sm:pr-8 data-controller='menu' data-menu-target='menu'
+    .menu-btn.btn.btn-ghost.btn-square.btn-sm data-action='click->menu#clickMenuBtn click@document->menu#clickDocument'
+    ul.menu-content.hidden.menu.shadow.bg-base-100.rounded-bl-lg.w-52.sm:w-60.mt-2.5.sm:mt-3.5.pt-4.pb-8.text-accent data-menu-target='content'
+      li  = link_to t('static_pages.tos'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.privacy_policy'), '#', class: 'text-sm px-8 py-2 w-52 sm:w-60'
+      li  = link_to t('static_pages.contact'), '#', class: 'text-sm mb-4 px-8 py-2 w-52 sm:w-60'
+      p.text-xxs.text-icon.px-8 = t('defaults.copyright')

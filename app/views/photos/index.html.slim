@@ -1,7 +1,7 @@
 - content_for(:title, t('.title'))
 - if @photos.present?
-  .container.max-w-full.mx-0.my-10
-    .grid.place-items-center.mx-auto.sm:px-10
+  .container.max-w-full.mx-0.mb-14
+    .grid.place-items-center.mx-auto.pt-10.sm:px-10
       #photos.grid.place-items-center.md:grid-cols-2.lg:grid-cols-3.2xl:grid-cols-4
       = turbo_frame_tag :load_more, loading: :lazy, src: photos_path(format: :turbo_stream)
 - else

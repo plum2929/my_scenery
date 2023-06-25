@@ -1,0 +1,10 @@
+.btm-nav.btm-nav-sm.bg-base-200.z-10.text-xl.text-icon.sm:hidden
+  = link_to photos_path, class: current_page_icon(photos_path) do
+    i.fas.fa-image
+    p.text-xxs.font-bold = t('defaults.photos')
+  = link_to login_path, class: current_page_icon(login_path) do
+    i.fas.fa-right-to-bracket
+    p.text-xxs.font-bold = t('defaults.login')
+  = link_to signup_path, class: current_page_icon(signup_path) do
+    i.fas.fa-user-plus
+    p.text-xxs.font-bold = t('defaults.signup')

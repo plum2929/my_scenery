@@ -5,6 +5,7 @@ html
       = page_title(yield(:title))
     meta[name="viewport" content="width=device-width,initial-scale=1"]
     meta[name="turbo-cache-control" content="no-preview"]
+    link[href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet"]
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload'
@@ -12,7 +13,9 @@ html
   body
     - if logged_in?
       = render 'shared/after_login_header'
+      = render 'shared/after_login_navbar'
     - else
       = render 'shared/before_login_header'
+      = render 'shared/before_login_navbar'
     = render 'shared/flash_message'
     = yield

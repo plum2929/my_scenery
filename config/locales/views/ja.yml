@@ -2,12 +2,20 @@ ja:
   defaults:
     title: 'MyScenery'
     register: '登録する'
+    signup: '新規登録'
     login: 'ログイン'
     logout: 'ログアウト'
     post: '投稿する'
+    photos: '投稿一覧'
+    new_post: '新規投稿'
+    interested: '気になる'
+    album: 'アルバム'
+    my_page: 'マイページ'
+    account_settings: 'アカウント設定'
     required: ' は必須項目です'
     require_login: 'ログインしてください'
     create_account: 'アカウントを作成する'
+    copyright: '© 2023 MyScenery'
   static_pages:
     top:
       to_photos: '風景写真を見てみる'

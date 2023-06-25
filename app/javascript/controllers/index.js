@@ -4,11 +4,17 @@
 
 import { application } from "./application"
 
+import HeaderController from "./header_controller"
+application.register("header", HeaderController)
+
 import ImageController from "./image_controller"
 application.register("image", ImageController)
 
 import LoginController from "./login_controller"
 application.register("login", LoginController)
+
+import MenuController from "./menu_controller"
+application.register("menu", MenuController)
 
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)

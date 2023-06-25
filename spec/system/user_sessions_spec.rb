@@ -63,6 +63,7 @@ RSpec.describe 'UserSessions', type: :system do
 
     context 'ログアウト' do
       it 'ログアウトに成功する' do
+        find('.menu-btn').click
         click_on I18n.t('defaults.logout')
         expect(page).to have_content I18n.t('user_sessions.destroy.success')
         expect(page).to have_current_path root_path

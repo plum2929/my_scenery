@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Petrona:wght@600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,4 +12,53 @@
 .required-before:before {
   content: " *";
   color: #ff3232;
+}
+
+/* ヘッダー表示 */
+header.fixed-hide {
+  top: -56px;
+}
+
+ /* メニュー */
+.menu-btn:before {
+  content: '\f0c9';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+#menu .btn-ghost:hover {
+  --tw-border-opacity: 0;
+  --tw-bg-opacity: 0;
+}
+
+.menu-content {
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+}
+
+#menu[open] .menu-btn:before {
+  content: '\f00d';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #056382;
+}
+
+#menu[open] .menu-btn.btn {
+  background-color: #d1e1e6;
+}
+
+@media (min-width: 640px) {
+  .menu-btn:before {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+  #menu[open] .menu-btn:before {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
