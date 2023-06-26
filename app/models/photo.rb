@@ -18,6 +18,9 @@
 #
 class Photo < ApplicationRecord
   belongs_to :user
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+
   mount_uploader :image, ImageUploader
 
   validates :image, presence: true
