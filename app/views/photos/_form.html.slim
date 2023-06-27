@@ -6,10 +6,11 @@
         = f.object.errors.full_messages.first
   .form-control
     label.label
-      span.label-text.text-lg.required
-        = f.label :image
-      span.label-text.required-before.text-xs.mb-5
-        = t('defaults.required')
+      span.label-text
+        span.text-lg.required
+          = f.label :image
+        span.text-xs
+          = t('defaults.max_file_size')
     = f.file_field :image, class: 'file-input file-input-bordered file-input-info w-full max-w-xs', data: { image_target: 'select', action: 'change->image#imagePreview' }, accept: 'image/jpg,image/jpeg,image/gif,image/png'
     = f.hidden_field :image_cache
   .my-5
