@@ -6,11 +6,10 @@
         = f.object.errors.full_messages.first
   .form-control
     label.label
-      span.label-text
-        span.text-lg.required
-          = f.label :image
-        span.text-xs
-          = t('defaults.max_file_size')
+      span.label-text.text-lg.required
+        = f.label :image
+      span.label-text.required-before.text-xs.mb-5
+        = t('defaults.required')
     = f.file_field :image, class: 'file-input file-input-bordered file-input-info w-full max-w-xs', data: { image_target: 'select', action: 'change->image#imagePreview' }, accept: 'image/jpg,image/jpeg,image/gif,image/png'
     = f.hidden_field :image_cache
   .my-5
@@ -18,5 +17,5 @@
       = image_tag photo.image.url, data: { image_target: 'preview'  }
     - else
       = image_tag '', data: { image_target: 'preview'  }
-  .mt-7.mb-2
-    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white', data: { turbo: false }
+  .mt-7.mb-20
+    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { image_target: 'submit', turbo: false }
