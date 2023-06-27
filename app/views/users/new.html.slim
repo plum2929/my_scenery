@@ -10,7 +10,7 @@
         label.label
           span.label-text.text-base.required
             = f.label :name
-          spen.label-text.text-base.required-before.text-xs.mb-5
+          span.label-text.required-before.text-xs.mb-5
             = t('defaults.required')
         = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-info', autocomplete: 'name', data: { signup_target: 'name' }
         p data-signup-target='error_name'
