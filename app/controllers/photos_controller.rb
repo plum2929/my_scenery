@@ -1,3 +1,4 @@
+require 'debug'
 class PhotosController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
@@ -16,7 +17,7 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to photos_path
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -12,10 +12,11 @@ ja:
     album: 'アルバム'
     my_page: 'マイページ'
     account_settings: 'アカウント設定'
-    required: ' は必須項目です'
+    copyright: '© 2023 MyScenery'
+    required: 'は必須項目です'
     require_login: 'ログインしてください'
     create_account: 'アカウントを作成する'
-    copyright: '© 2023 MyScenery'
+    max_file_size: '（最大15MBまで）'
   static_pages:
     top:
       to_photos: '風景写真を見てみる'

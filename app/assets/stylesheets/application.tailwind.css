@@ -10,7 +10,7 @@
 }
 
 .required-before:before {
-  content: " *";
+  content: "* ";
   color: #ff3232;
 }
 

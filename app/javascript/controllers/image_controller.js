@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['select', 'preview']
 
-  previewImage() {
+  imagePreview() {
     const file = this.selectTarget.files[0]
     const preview = this.previewTarget
     const reader = new FileReader()
