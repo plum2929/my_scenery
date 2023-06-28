@@ -4,4 +4,4 @@
     h1.text-2xl.pt-10.pb-5
       = t('.title')
   .grid.place-items-center
-    = render 'form', photo: @photo
+    = render partial: 'form', locals: { photo: @photo, tag_names: @tag_names }

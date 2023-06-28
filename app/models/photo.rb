@@ -24,4 +24,15 @@ class Photo < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates :image, presence: true
+
+  def save_with_tags(tag_params)
+    tag_names = tag_params.dig(:tag_names).split(',').uniq
+    valid = true
+    ActiveRecord::Base.transaction do
+      self.tags = tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
+      valid &= save
+      raise ActiveRecord::Rollback unless valid
+    end
+    valid
+  end
 end

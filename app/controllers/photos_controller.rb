@@ -1,4 +1,3 @@
-require 'debug'
 class PhotosController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
@@ -14,7 +13,8 @@ class PhotosController < ApplicationController
 
   def create
     @photo = current_user.photos.build(photo_params)
-    if @photo.save
+    @tag_names = tag_params[:tag_names]
+    if @photo.save_with_tags(tag_params)
       redirect_to photos_path
     else
       render :new, status: :unprocessable_entity
@@ -27,5 +27,9 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:image, :image_cache)
+  end
+
+  def tag_params
+    params.require(:photo).permit(:tag_names)
   end
 end

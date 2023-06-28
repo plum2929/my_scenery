@@ -13,10 +13,15 @@
           = t('defaults.max_file_size')
     = f.file_field :image, class: 'file-input file-input-bordered file-input-info w-full max-w-xs', data: { image_target: 'select', action: 'change->image#imagePreview' }, accept: 'image/jpg,image/jpeg,image/gif,image/png'
     = f.hidden_field :image_cache
-  .my-5
+  .mt-5.mb-3
     - if photo.image?
       = image_tag photo.image.url, data: { image_target: 'preview'  }
     - else
       = image_tag '', data: { image_target: 'preview'  }
+  .form-control
+    label.label
+      span.label-text.text-lg
+        = f.label :tag_names
+    = f.text_field :tag_names, value: tag_names, class: 'input input-info'
   .mt-7.mb-20
     = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { image_target: 'submit', turbo: false }
