@@ -57,3 +57,5 @@ ja:
     new:
       title: '新規投稿'
       post: '投稿する'
+    create:
+      success: '投稿しました'

@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     @tag_names = tag_params[:tag_names]
     @all_tags = Tag.get_all_tag_names
     if @photo.save_with_tags(@tag_names)
-      redirect_to photos_path
+      redirect_to photos_path, success: t('.success')
     else
       render :new, status: :unprocessable_entity
     end
