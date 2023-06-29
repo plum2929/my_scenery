@@ -16,4 +16,8 @@ class Tag < ApplicationRecord
   has_many :photos, through: :taggings
 
   validates :name, presence: true, uniqueness: true
+
+  def self.get_all_tag_names
+    order(:name).to_json(only: :name)
+  end
 end
