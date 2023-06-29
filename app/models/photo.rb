@@ -18,7 +18,20 @@
 #
 class Photo < ApplicationRecord
   belongs_to :user
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+
   mount_uploader :image, ImageUploader
 
   validates :image, presence: true
+
+  def save_with_tags(tag_names)
+    valid = true
+    ActiveRecord::Base.transaction do
+      self.tags = tag_names.split(',').uniq.map { |name| Tag.find_or_initialize_by(name: name.strip) }
+      valid &= save
+      raise ActiveRecord::Rollback unless valid
+    end
+    valid
+  end
 end

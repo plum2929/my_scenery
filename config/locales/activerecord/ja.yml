@@ -14,6 +14,7 @@ ja:
         role: '権限'
       photo:
         image: '風景写真'
+        tag_names: 'タグ'
   attributes:
     id: ID
     created_at: '作成日時'

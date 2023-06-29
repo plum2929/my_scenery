@@ -1,6 +1,7 @@
 - content_for(:title, t('.title'))
 .container.mx-auto
   .grid.place-items-center
-    h1.text-2xl.pt-10.pb-5 = t('.title')
+    h1.text-2xl.pt-10.pb-5
+      = t('.title')
   .grid.place-items-center
-    = render 'form', photo: @photo
+    = render partial: 'form', locals: { photo: @photo, tag_names: @tag_names, all_tags: @all_tags, submit_text: t('.post') }

@@ -10,22 +10,22 @@
         label.label
           span.label-text.text-base.required
             = f.label :name
-          spen.label-text.text-base.required-before.text-xs.mb-5
-            = t('defaults.required')
-        = f.text_field :name, placeholder: '20文字以内でご入力ください', class: 'input input-info', autocomplete: 'name', data: { signup_target: 'name' }
+          span.label-text.required-before.text-xs.mb-5
+            = t('information.required')
+        = f.text_field :name, placeholder: t('.name_placeholder'), class: 'input input-info', autocomplete: 'name', data: { signup_target: 'name' }
         p data-signup-target='error_name'
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :email
-        = f.text_field :email, placeholder: '受信可能なものをご入力ください', class: 'input input-info', autocomplete: 'email', data: { signup_target: 'email' }
+        = f.text_field :email, placeholder: t('.email_placeholder'), class: 'input input-info', autocomplete: 'email', data: { signup_target: 'email' }
         p data-signup-target='error_email'
       .form-control.mb-2
         label.label
           span.label-text.text-base.required
             = f.label :password
         .w-full.indicator.input-success  data-controller='password-visibility'
-          = f.password_field :password, placeholder: '8文字以上でご入力ください', class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password' }, spellcheck: 'false'
+          = f.password_field :password, placeholder: t('.password_placeholder'), class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password' }, spellcheck: 'false'
           = render 'shared/password_visibility'
         p data-signup-target='error_password'
       .form-control
@@ -33,19 +33,19 @@
           span.label-text.text-base.required
             = f.label :password_confirmation
         .w-full.indicator.input-success  data-controller='password-visibility'
-          = f.password_field :password_confirmation, placeholder: '確認のためもう一度ご入力ください', class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password_confirmation' }, spellcheck: 'false'
+          = f.password_field :password_confirmation, placeholder: t('.confirmation_placeholder'), class: 'input input-info w-full', autocomplete: 'new-password', data: { password_visibility_target: 'input', signup_target: 'password_confirmation' }, spellcheck: 'false'
           = render 'shared/password_visibility'
         p data-signup-target='error_password_confirmation'
       .mt-7
-        = f.submit t('defaults.register'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { signup_target: 'submit' }
+        = f.submit t('.register'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { signup_target: 'submit' }
   .grid.place-items-center
     p.mt-7.px-8.text-xs
       = link_to t('static_pages.tos'), '#', class: 'link text-blue-500'
-      | および
+      = t('information.and')
       = link_to t('static_pages.privacy_policy'), '#', class: 'link text-blue-500'
-      | に同意の上、登録またはログインへお進みください。
+      = t('information.consent')
     .divider.w-full.px-8.py-3.md:max-w-2xl
   .grid.place-items-center
-    p すでにアカウントをお持ちの方
+    p  = t('.have_an_account')
     .mt-3.mb-10
       = link_to t('.to_login_page'), login_path, class: 'btn btn-primary btn-outline btn-wide'

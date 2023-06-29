@@ -10,7 +10,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_button I18n.t('defaults.register')
+          click_button I18n.t('users.new.register')
           expect(page).to have_content 'トップページ'
           expect(page).to have_current_path root_path
         end
@@ -23,7 +23,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content 'ユーザー名を入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -36,7 +36,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content 'ユーザー名は20文字以内で入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -49,7 +49,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: ''
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content 'メールアドレスを入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -62,7 +62,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example,com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content '有効なメールアドレスを入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -76,7 +76,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: existing_user.email
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          click_button I18n.t('defaults.register')
+          click_button I18n.t('users.new.register')
           expect(page).to have_content I18n.t('errors.messages.taken')
           expect(page).to have_current_path signup_path
         end
@@ -89,7 +89,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: ''
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content '8文字以上で入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -102,7 +102,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'a' * 7
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content '8文字以上で入力してください'
           expect(page).to have_current_path signup_path
         end
@@ -115,7 +115,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: ''
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_current_path signup_path
         end
       end
@@ -127,7 +127,7 @@ RSpec.describe 'Users', type: :system do
           fill_in I18n.t('activerecord.attributes.user.email'), with: 'sample@example.com'
           fill_in I18n.t('activerecord.attributes.user.password'), with: 'password'
           fill_in I18n.t('activerecord.attributes.user.password_confirmation'), with: 'other_password'
-          expect(page).to have_button I18n.t('defaults.register'), disabled: true
+          expect(page).to have_button I18n.t('users.new.register'), disabled: true
           expect(page).to have_content '入力したパスワードと一致しません'
           expect(page).to have_current_path signup_path
         end
