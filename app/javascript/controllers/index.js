@@ -19,6 +19,9 @@ application.register("menu", MenuController)
 import SignupController from "./signup_controller"
 application.register("signup", SignupController)
 
+import TagController from "./tag_controller"
+application.register("tag", TagController)
+
 import Notification from "stimulus-notification"
 application.register("notification", Notification)
 

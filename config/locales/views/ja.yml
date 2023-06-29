@@ -16,7 +16,9 @@ ja:
     required: 'は必須項目です'
     require_login: 'ログインしてください'
     create_account: 'アカウントを作成する'
+  information:
     max_file_size: '（最大20MBまで）'
+    tagging: '（入力後にEnter↩︎を押すと追加できます）'
   static_pages:
     top:
       to_photos: '風景写真を見てみる'

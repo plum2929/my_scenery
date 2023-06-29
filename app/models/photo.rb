@@ -25,11 +25,10 @@ class Photo < ApplicationRecord
 
   validates :image, presence: true
 
-  def save_with_tags(tag_params)
-    tag_names = tag_params.dig(:tag_names).split(',').uniq
+  def save_with_tags(tag_names)
     valid = true
     ActiveRecord::Base.transaction do
-      self.tags = tag_names.map { |name| Tag.find_or_initialize_by(name: name.strip) }
+      self.tags = tag_names.split(',').uniq.map { |name| Tag.find_or_initialize_by(name: name.strip) }
       valid &= save
       raise ActiveRecord::Rollback unless valid
     end

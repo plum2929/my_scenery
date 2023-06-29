@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
   def create
     @photo = current_user.photos.build(photo_params)
     @tag_names = tag_params[:tag_names]
-    if @photo.save_with_tags(tag_params)
+    if @photo.save_with_tags(@tag_names)
       redirect_to photos_path
     else
       render :new, status: :unprocessable_entity
