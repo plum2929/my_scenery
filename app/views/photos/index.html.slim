@@ -8,8 +8,8 @@
   .container.mx-auto
     .grid.place-items-center
       .grid.place-items-center.mt-20
-        p.text-lg まだ投稿がありません
-        p.my-8 風景写真を投稿してみませんか？
+        p.text-lg = t('.no_posts')
+        p.my-8 = t(".why_don't_you_post?")
         - if logged_in?
           .w-full
             = link_to t('.to_new_photo_page'), new_photo_path, class: 'btn btn-primary btn-block btn-wide text-white'
@@ -18,4 +18,4 @@
             = link_to t('.to_login_page'), login_path, class: 'btn btn-primary btn-block btn-wide text-white'
           .divider.my-5.text-gray-400 OR
           .w-full.mb-10
-            = link_to t('defaults.create_account'), signup_path, class: 'btn btn-primary btn-wide text-white'
+            = link_to t('action.create_account'), signup_path, class: 'btn btn-primary btn-wide text-white'

@@ -29,12 +29,12 @@
   .grid.place-items-center
     p.mt-7.px-8.text-xs
       = link_to t('static_pages.tos'), '#', class: 'link text-blue-500'
-      | および
+      = t('information.and')
       = link_to t('static_pages.privacy_policy'), '#', class: 'link text-blue-500'
-      | に同意の上、登録またはログインへお進みください。
+      = t('information.consent')
     .divider.w-full.px-8.py-3.md:max-w-2xl
   .grid.place-items-center
-    p アカウントをお持ちでない方
+    p  = t(".don't_have_an_account")
     .mt-3.mb-10
       = link_to t('.to_register_page'), signup_path, class: 'btn btn-primary btn-outline btn-wide'
 

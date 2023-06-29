@@ -1,22 +1,23 @@
 ja:
   defaults:
     title: 'MyScenery'
-    register: '登録する'
-    signup: '新規登録'
     login: 'ログイン'
     logout: 'ログアウト'
-    post: '投稿する'
-    photos: '投稿一覧'
+    signup: '新規登録'
     new_post: '新規投稿'
+    photos: '投稿一覧'
     interested: '気になる'
     album: 'アルバム'
     my_page: 'マイページ'
     account_settings: 'アカウント設定'
     copyright: '© 2023 MyScenery'
-    required: 'は必須項目です'
-    require_login: 'ログインしてください'
+  action:
     create_account: 'アカウントを作成する'
   information:
+    require_login: 'ログインしてください'
+    required: 'は必須項目です'
+    and: 'および'
+    consent: 'に同意の上、登録またはログインへお進みください。'
     max_file_size: '（最大20MBまで）'
     tagging: '（入力後にEnter↩︎を押すと追加できます）'
   static_pages:
@@ -28,10 +29,17 @@ ja:
   users:
     new:
       title: '新規登録'
+      name_placeholder: '20文字以内でご入力ください'
+      email_placeholder: '受信可能なものをご入力ください'
+      password_placeholder: '8文字以上でご入力ください'
+      confirmation_placeholder: '確認のためもう一度ご入力ください'
+      register: '登録する'
+      have_an_account: 'すでにアカウントをお持ちの方'
       to_login_page: 'ログインページへ'
   user_sessions:
     new:
       title: 'ログイン'
+      don't_have_an_account: 'アカウントをお持ちでない方'
       to_register_page: '新規登録ページへ'
       password_forget: 'パスワードをお忘れの方はこちら'
     create:
@@ -44,5 +52,8 @@ ja:
       title: '投稿一覧'
       to_login_page: 'ログインする'
       to_new_photo_page: '風景写真を投稿する'
+      no_posts: 'まだ投稿がありません'
+      why_don't_you_post?: '風景写真を投稿してみませんか？'
     new:
       title: '新規投稿'
+      post: '投稿する'

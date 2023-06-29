@@ -29,4 +29,4 @@
     = f.hidden_field :all_tags, value: all_tags, data: { tag_target:'all_tags' }
     = f.hidden_field :tag_names, value: tag_names, data: { tag_target:'tag_names'}
   .mt-7.mb-20
-    = f.submit t('defaults.post'), class: 'btn btn-primary btn-block text-white', disabled: true, data: { image_target: 'submit', turbo: false }
+    = f.submit submit_text, class: 'btn btn-primary btn-block text-white', disabled: true, data: { image_target: 'submit', turbo: false }
