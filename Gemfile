@@ -56,15 +56,18 @@ gem 'enum_help'
 gem 'rails-i18n'
 
 # slim
-gem 'html2slim'
 gem 'slim-rails'
 
 # ユーザー認証
 gem 'sorcery'
 
-# 画像のアップロード
+# 画像のアップロード関連
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
+
+# 環境変数の管理
+gem 'dotenv-rails'
 
 # ページネーション
 gem 'pagy'
