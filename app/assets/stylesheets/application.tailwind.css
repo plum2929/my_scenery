@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Petrona:wght@600&display=swap');
-@import '../../../node_modules/@yaireo/tagify/dist/tagify.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
