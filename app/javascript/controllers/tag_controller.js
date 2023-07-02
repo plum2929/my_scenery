@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import Tagify from '@yaireo/tagify'
 
 // Connects to data-controller="tag"
 export default class extends Controller {
@@ -7,8 +6,8 @@ export default class extends Controller {
 
   connect() {
     const tagInput = this.tag_inputTarget
-    const allTags = this.all_tagsTarget
-    const allTagsList = JSON.parse(allTags.value).map(v => v.name)
+    const allTags = this.all_tagsTarget.getAttribute('value')
+    const allTagsList = JSON.parse(allTags).map(v => v.name)
 
     const tagify = new Tagify(tagInput, {
       whitelist: allTagsList,

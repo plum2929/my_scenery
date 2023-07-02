@@ -26,7 +26,7 @@
         span.text-xs
           = t('information.tagging')
     = f.text_field :tag_input, class: 'input input-info items-center px-2 py-1 custom-tagify', data: { tag_target:'tag_input' }
-    = f.hidden_field :all_tags, value: all_tags, data: { tag_target:'all_tags' }
     = f.hidden_field :tag_names, value: tag_names, data: { tag_target:'tag_names'}
+    . value=all_tags data-tag-target='all_tags'
   .mt-7.mb-20
     = f.submit submit_text, class: 'btn btn-primary btn-block text-white', disabled: true, data: { image_target: 'submit', turbo: false }

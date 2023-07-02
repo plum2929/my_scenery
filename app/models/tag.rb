@@ -17,7 +17,7 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  def self.get_all_tag_names
+  def self.all_names
     order(:name).to_json(only: :name)
   end
 end
