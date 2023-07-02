@@ -14,7 +14,7 @@ class PhotosController < ApplicationController
 
   def create
     @photo = current_user.photos.build(photo_params)
-    @tag_names = tag_params[:tag_names]
+    @tag_names = params.dig(:photo, :tag_names)
     @all_tags = Tag.all_names
     if @photo.save_with_tags(@tag_names)
       redirect_to photos_path, success: t('.success')
@@ -29,9 +29,5 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(:image, :image_cache)
-  end
-
-  def tag_params
-    params.require(:photo).permit(:tag_names)
   end
 end
