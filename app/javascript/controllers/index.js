@@ -27,3 +27,6 @@ application.register("notification", Notification)
 
 import PasswordVisibility from "stimulus-password-visibility"
 application.register("password-visibility", PasswordVisibility)
+
+import ScrollTo from "stimulus-scroll-to"
+application.register("scroll-to", ScrollTo)

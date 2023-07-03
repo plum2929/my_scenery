@@ -1,5 +1,9 @@
 .flex-1.px-4.sm:px-7.text-accent.text-xl.font-title
-  = link_to t('defaults.title'), photos_path
+  - if current_page?(photos_path)
+    a class="#{current_page_icon(photos_path)}" href='#awesome-stuff-here' data-controller='scroll-to'
+      = t('defaults.title')
+  - else
+    = link_to t('defaults.title'), photos_path
 .flex.justify-end.items-center.text-icon
   = link_to '#' do
     .text-lg.sm:text-xl.pr-7
@@ -7,9 +11,14 @@
   = link_to '#' do
     .text-lg.sm:text-xl.pr-7
       i.fas.fa-map-location-dot
-  = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
-    .text-lg.sm:text-xl.pr-7
-      i.fas.fa-image
+  - if current_page?(photos_path)
+    a class="hidden sm:flex #{current_page_icon(photos_path)}" href='#awesome-stuff-here' data-controller='scroll-to'
+      .text-lg.sm:text-xl.pr-7
+        i.fas.fa-image
+  - else
+    = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
+      .text-lg.sm:text-xl.pr-7
+        i.fas.fa-image
   = link_to new_photo_path, class: "hidden sm:flex #{current_page_icon(new_photo_path)}" do
     .text-lg.sm:text-xl.pr-7
       i.fas.fa-plus

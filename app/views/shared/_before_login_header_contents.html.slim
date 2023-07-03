@@ -7,10 +7,16 @@
   = link_to '#' do
     .text-lg.sm:text-xl
       i.fas.fa-map-location-dot
-  = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
-    .inline-block.text-center.text-lg.sm:text-xl
-      i.fas.fa-image
-      p.text-xxs.font-bold = t('defaults.photos')
+  - if current_page?(photos_path)
+    a class="hidden sm:flex #{current_page_icon(photos_path)}" href='#awesome-stuff-here' data-controller='scroll-to'
+      .inline-block.text-center.text-lg.sm:text-xl
+        i.fas.fa-image
+        p.text-xxs.font-bold = t('defaults.photos')
+  - else
+    = link_to photos_path, class: "hidden sm:flex #{current_page_icon(photos_path)}" do
+      .inline-block.text-center.text-lg.sm:text-xl
+        i.fas.fa-image
+        p.text-xxs.font-bold = t('defaults.photos')
   = link_to login_path, class: "hidden sm:flex #{current_page_icon(login_path)}" do
     .inline-block.text-center.text-lg.sm:text-xl
       i.fas.fa-right-to-bracket
