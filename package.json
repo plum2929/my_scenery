@@ -10,6 +10,7 @@
     "postcss": "^8.4.24",
     "stimulus-notification": "^2.2.0",
     "stimulus-password-visibility": "^2.1.1",
+    "stimulus-scroll-to": "^4.1.0",
     "tailwindcss": "^3.3.2"
   },
   "scripts": {
